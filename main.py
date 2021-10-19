@@ -57,19 +57,30 @@ def test_pal():
     assert pal(['aaa','abb','acc'],c) ==['aaa']
     assert pal(['abb','bba','cca'],c) ==[]
     assert pal(['zxz','yzy','bab','abb','caa'],c) == ['zxz','yzy','bab']
-'''
+
+
 def inloc(l):
     c=[]
     max_frequency = {}
-    for j in l:
-        for i in l[j]:
+    for j in l:         #Determinam caracterul cu numar maxim de aparitii
+        for i in j:
             if i in max_frequency:
                 max_frequency[i] += 1
             else:
                 max_frequency[i] = 1
-        my_result = max(max_frequency, key = max_frequency.get)
-    print(my_result)
-'''
+            my_result = max(max_frequency, key = max_frequency.get)
+            maxim = max_frequency
+        c.append(my_result)
+
+    for j in l:       
+        for i in j:
+            if i ==my_result:
+                c.append(max_frequency[i]) #Punem in lista maximum de aparitii a celui mai intalnit caracter unde se gaseste
+                break
+            else:
+                c.append(j) #Altfel punem stringul corespunzator in care nu se gaseste
+                break
+    print(c)
 
     
 
@@ -82,6 +93,7 @@ def printmenu():
     print("3) Afisarea unei liste cu toate sirurile de caractere care  se repeta: ")
     print("4) Afisati toate sirurile din lista care sunt palindrom: ")
     print("5) Afișați lista obținută prin înlocuirea șirurilor care conțin caracterul care apare de cele mai multe ori în toată lista: ")
+    print("x) Inchidere")
 
 def main():
     test_gaseste()
@@ -111,12 +123,11 @@ def main():
             e=pal(l,l1)
             print(e)
         elif optiune =="5":
-            pass
+            inloc(l)
         elif optiune =="x":
             break
         else:
             print("Optiune incorecta,reincercati:")
-            pass
 
         
 
