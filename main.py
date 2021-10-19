@@ -57,9 +57,21 @@ def test_pal():
     assert pal(['aaa','abb','acc'],c) ==['aaa']
     assert pal(['abb','bba','cca'],c) ==[]
     assert pal(['zxz','yzy','bab','abb','caa'],c) == ['zxz','yzy','bab']
+'''
+def inloc(l):
+    c=[]
+    max_frequency = {}
+    for j in l:
+        for i in l[j]:
+            if i in max_frequency:
+                max_frequency[i] += 1
+            else:
+                max_frequency[i] = 1
+        my_result = max(max_frequency, key = max_frequency.get)
+    print(my_result)
+'''
 
-
-
+    
 
 
 
@@ -69,7 +81,7 @@ def printmenu():
     print("2) Verificare daca un sir citit de la tastatura se gaseste in lista: ")
     print("3) Afisarea unei liste cu toate sirurile de caractere care  se repeta: ")
     print("4) Afisati toate sirurile din lista care sunt palindrom: ")
-    print("5) ")
+    print("5) Afișați lista obținută prin înlocuirea șirurilor care conțin caracterul care apare de cele mai multe ori în toată lista: ")
 
 def main():
     test_gaseste()
@@ -98,6 +110,8 @@ def main():
         elif optiune =="4":
             e=pal(l,l1)
             print(e)
+        elif optiune =="5":
+            pass
         elif optiune =="x":
             break
         else:
