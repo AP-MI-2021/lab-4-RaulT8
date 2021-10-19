@@ -41,12 +41,22 @@ def test_repeta():
     assert repeta(['yyy','zzz','aaa','bbb','ccc','ddd','zzz'],s) ==['zzz']
 
 def pal(l,c):
+    '''
+    param:l-lista initiala,c-lista unde vom pune toate string-urile care sunt palindroame
+    return:c-lista unde vom pune toate string-urile care sunt palindroame
+    '''
 
     c=[] 
     for x in l:
         if x == x[::-1]:
             c.append(x)
     return c
+
+def test_pal():
+    c=[]
+    assert pal(['aaa','abb','acc'],c) ==['aaa']
+    assert pal(['abb','bba','cca'],c) ==[]
+    assert pal(['zxz','yzy','bab','abb','caa'],c) == ['zxz','yzy','bab']
 
 
 
@@ -64,6 +74,7 @@ def printmenu():
 def main():
     test_gaseste()
     test_repeta()
+    test_pal()
     l=[]
     s=[]
     l1=[]
